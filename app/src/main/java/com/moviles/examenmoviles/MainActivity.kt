@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.moviles.examenmoviles.navigation.AppNavHost
+import com.moviles.examenmoviles.ui.screens.main.MainScreen
 import com.moviles.examenmoviles.ui.theme.ExamenMovilesTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ExamenMovilesTheme {
-                AppNavHost()
+                MainScreen()
             }
         }
     }
