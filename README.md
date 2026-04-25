@@ -1,1 +1,52 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/uBh8cAtu)
+\# Coworking Space App
+
+
+
+Aplicación móvil desarrollada con Jetpack Compose para la gestión y reservación de espacios de coworking.
+
+
+
+\## Funcionalidades
+
+
+
+\- Visualización de espacios disponibles.
+
+\- Consulta de detalles de cada espacio.
+
+\- Navegación entre pantallas.
+
+\- Interfaz moderna con Jetpack Compose.
+
+\- Uso de datos simulados.
+
+
+
+\## Tecnologías utilizadas
+
+
+
+\- Kotlin
+
+\- Jetpack Compose
+
+
+
+\## Estructura del proyecto
+
+
+
+\- `/app`: Código fuente de la aplicación.
+
+\- `/docs`: Documentación técnica.
+
+
+
+\## Autor
+
+
+
+\- Yeimer Requene
+
+
+

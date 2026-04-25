@@ -1,0 +1,119 @@
+openapi: 3.0.0
+info:
+  title: Coworking Spaces API
+  version: 1.0.0
+  description: API para la gestión de espacios de coworking y reservaciones.
+
+paths:
+  /api/spaces:
+    get:
+      summary: Obtener lista de espacios
+      responses:
+        '200':
+          description: Lista de espacios recuperada exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Space'
+
+  /api/spaces/{id}:
+    get:
+      summary: Obtener detalle de un espacio
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalle del espacio
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Space'
+        '404':
+          description: Espacio no encontrado
+
+  /api/reservations:
+    post:
+      summary: Crear una nueva reservación
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReservationRequest'
+      responses:
+        '201':
+          description: Reservación creada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationResponse'
+
+  /api/reservations/user/{userId}:
+    get:
+      summary: Obtener reservaciones por usuario
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Lista de reservaciones del usuario
+
+components:
+  schemas:
+    Space:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        pricePerHour:
+          type: number
+          format: double
+        isAvailable:
+          type: boolean
+
+    CreateReservationRequest:
+      type: object
+      required:
+        - userId
+        - spaceId
+        - date
+        - hours
+      properties:
+        userId:
+          type: integer
+        spaceId:
+          type: integer
+        date:
+          type: string
+          format: date
+        hours:
+          type: integer
+
+    ReservationResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        spaceId:
+          type: integer
+        spaceName:
+          type: string
+        date:
+          type: string
+        totalPrice:
+          type: number
